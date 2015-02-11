@@ -33,5 +33,5 @@ libOgreBulletCol_la_SOURCES = \
 
 libOgreBulletCol_la_LIBADD = \
  $(OGRE_LIBS) \
- $(bullet_LIBS)
-
+ $(bullet_LIBS) \
+ -lConvexDecomposition
