@@ -84,7 +84,11 @@ namespace OgreBulletCollisions
     // -------------------------------------------------------------------------
     Object  *CollisionClosestRayResultCallback::getCollidedObject () const
     {        
-        return mWorld->findObject(static_cast<btCollisionWorld::ClosestRayResultCallback *> (mRayResultCallback)->m_collisionObject);
+        #if BT_BULLET_VERSION>=281
+           return mWorld->findObject(const_cast<btCollisionObject*>(static_cast<btCollisionWorld::ClosestRayResultCallback *> (mRayResultCallback)->m_collisionObject));
+        #else
+           return mWorld->findObject(static_cast<btCollisionWorld::ClosestRayResultCallback *> (mRayResultCallback)->m_collisionObject);
+        #endif
 	}
     // -------------------------------------------------------------------------
 	CollisionClosestRayResultCallback::CollisionClosestRayResultCallback(const Ogre::Ray &ray, CollisionsWorld *world, Ogre::Real max_distance) :

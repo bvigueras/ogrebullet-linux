@@ -223,8 +223,13 @@ void CollisionsWorld::discreteCollide()
 	{
 		btPersistentManifold* contactManifold = mWorld->getDispatcher()->getManifoldByIndexInternal(i);
 
-		btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
-		btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
+		#if BT_BULLET_VERSION>=281
+			btCollisionObject* obA = const_cast<btCollisionObject*>(contactManifold->getBody0());
+			btCollisionObject* obB = const_cast<btCollisionObject*>(contactManifold->getBody1());
+		#else
+			btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
+			btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
+		#endif
 
 		contactManifold->refreshContactPoints(obA->getWorldTransform(),obB->getWorldTransform());
 
