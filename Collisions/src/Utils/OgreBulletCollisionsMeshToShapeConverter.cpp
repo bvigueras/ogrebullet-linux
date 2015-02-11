@@ -32,7 +32,12 @@ THE SOFTWARE.
 
 #include "Utils/OgreBulletCollisionsMeshToShapeConverter.h"
 
+#if OGRE_PLATFORM == OGRE_PLATFORM_LINUX
+#include "ConvexDecomposition/ConvexBuilder.h"
+#else
 #include "ConvexBuilder.h"
+#endif
+
 
 #include "BulletCollision/CollisionShapes/btShapeHull.h"
 
