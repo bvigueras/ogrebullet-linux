@@ -1,10 +1,10 @@
 # Ogrebullet for Linux
 
-I have created this repository for my personal use and convenience. For a repository that builds with CMake, use [Alexey Knyshev's repository]
+I have created this repository for my personal use and convenience. For a more updated, enhanced and CMake buildable version, use [Alexey Knyshev's repository]
 
 This code has been updated in order to work with Bullet versions 2.81 and newer. It has also been fixed in order to install it on Ubuntu linux with ease. I have not tested it with other Linux distros.
 
-This code was forked from original [SVN repository at Sourceforge] with Ogreaddons' revision 2988.
+This code was forked from original [SVN repository at Sourceforge] at Ogreaddons' revision 2988.
 
 ## Install instructions on Ubuntu Linux
 #### 1. Install dependencies:
